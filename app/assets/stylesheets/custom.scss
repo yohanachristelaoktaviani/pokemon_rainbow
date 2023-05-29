@@ -1,0 +1,349 @@
+@import "bootstrap";
+
+.center {
+  text-align: center;
+  h2 {
+    margin-bottom: 10px;
+    font-size: 2.2em;
+  }
+}
+
+.main {
+  margin-top: 100px;
+}
+
+.jumbotron {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  background-color: #e9ecef;
+  border-radius: .3rem;
+}
+
+.form2{
+  width: 685px;
+  height: 600px;
+  background-color: white;
+  margin-left: 200px;
+  padding:40px;
+}
+
+.form3{
+  width: 680px;
+  height: 600px;
+  background-color: white;
+  margin-left: -50px;
+  padding:20px;
+}
+
+
+label {
+  float: left;
+  width: 200px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+input{
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 20px;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+  width: 400px;
+}
+
+.edit-input{
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 18px;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+  width: 200px;
+}
+
+select{
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 22px;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+  background-color: white;
+  width: 400px;
+}
+
+.select2{
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 22px;
+  width: 220px;
+}
+
+
+.button1{
+  width:350%;
+  padding: 12px;
+  font-size: 20px;
+  margin-left: -10px;
+ }
+
+.button2{
+  width:80%;
+  padding: 12px;
+  margin-left: 130px;
+  font-size: 20px;
+ }
+
+.button3{
+  width:250%;
+  padding: 12px;
+  font-size: 20px;
+  margin-top: -30px;
+  margin-left: -10px;
+ }
+
+.button4{
+  width: 100%;
+  margin-top: 50px;
+  margin-right: 500px;
+  font-weight: bold;
+}
+
+.button5{
+  width:200%;
+  padding: 12px;
+  font-size: 20px;
+  margin-left: -10px;
+ }
+
+.button6{
+  width:100%;
+  padding: 12px;
+  font-size: 20px;
+  margin-left: 110px;
+ }
+
+ .button7{
+  width:290%;
+  padding: 12px;
+  font-size: 20px;
+  margin-left: -10px;
+ }
+
+.button8{
+    width:80%;
+    padding: 12px;
+    margin-top: 30px;
+    margin-left: 300px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.btn-main{
+  margin-top: 50px;
+}
+
+.btn-add-skill{
+  margin-left: 270px;
+  margin-top: 40px;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.btn-attack{
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+
+}
+
+.imagee{
+  width: 5rem;
+  height: 5rem;
+}
+
+.imageee{
+  width: 30rem;
+  height: 30rem;
+  margin-left: -50px;
+}
+
+.table{
+  margin-top: 50px;
+}
+
+.table2{
+  margin-top: 100px;
+}
+
+.tablee{
+  width: 50px;
+  height: 50px;
+  margin-top: 50px;
+}
+
+.tableee{
+  width: 50px;
+  height: 50px;
+  margin-top: 30px;
+}
+
+.tablestat{
+  height: 150px;
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 25px;
+}
+
+.tablehp{
+  font: 22px "Lucida Grande", "Helvetica", "Arial", sans-serif;
+
+}
+
+.th{
+  text-align: center;
+}
+
+.container1{
+  width: 570px;
+  height: 600px;
+  background-color: white;
+  padding:40px;
+}
+
+.container2{
+  width: 400px;
+  height: 550px;
+  background-color: white;
+  margin-left: 45px;
+  margin-top: -10px;
+}
+
+.container3{
+  width: 450px;
+  height: 552px;
+  background-color: white;
+  margin-top: -600px;
+  margin-left: 800px;
+}
+
+.container4{
+  width: 450px;
+  height: 400px;
+  background-color: white;
+}
+
+.container5{
+  width: 450px;
+  height: 552px;
+  background-color: white;
+  margin-top: -600px;
+  margin-left: 600px;
+}
+
+.container6{
+  width: 450px;
+  height: 300px;
+  background-color: white;
+  padding:40px;
+  margin-left: 20px;
+}
+
+.container7{
+  width: 450px;
+  height: 300px;
+  background-color: white;
+  padding:40px;
+  margin-left: 770px;
+  margin-top: -240px;
+}
+
+.container8{
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  margin-top: -260px;
+  margin-left: 520px;
+}
+
+.container9{
+  width: 410px;
+  height: 700px;
+  background-color: white;
+  padding:40px;
+  margin-left: 20px;
+}
+
+.container10{
+  width: 320px;
+  height: 300px;
+  background-color: white;
+}
+
+.container11{
+  width: 410px;
+  height: 700px;
+  background-color: white;
+  padding:40px;
+  margin-left: 830px;
+  margin-top: -700px;
+}
+
+.container12{
+  width: 32%;
+  height: 65px;
+  background-color: white;
+  margin-left: 5px;
+  margin-top: 20px;
+  outline: 5px double #0075BE;
+}
+
+
+
+.footer{
+  margin-top: 50px;
+}
+
+
+/* header */
+#logo2 {
+  float: left;
+  margin-right: 10px;
+  padding-top: 5px;
+}
+
+#nav{
+  font-size: 1.2em;
+  margin-right: 50px;
+  letter-spacing: 3px;
+  font-weight: bold;
+  color: #0A285F  ;
+  text-decoration: none;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+/* Typography */
+th{
+  text-align: justify;
+}
+
+td{
+  padding: 15px;
+}
+
+h1{
+  margin-top: 30px;
+}
+
+.playerr{
+  font-size: 24px;
+  letter-spacing: 2px;
+  font-weight:bold;
+}
+
+.fontturn{
+  font-size: 25px;
+  letter-spacing: 2px;
+  padding-left: 5px;
+}

@@ -1,0 +1,45 @@
+<% provide(:title, "Select Pokemon") %>
+<br>
+<%= render_breadcrumbs :separator => ' / ' %>
+
+<div class="form">
+
+<h1>Select Pokemon</h1>
+<%= form_with(model: @pokemon_battle, local: true) do |f| %>
+  <hr>
+    <p>
+    <% if flash[:danger] %>
+      <div class="alert alert-danger">
+        <ul>
+          <% flash[:danger].each do |danger| %>
+            <li><%= danger %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    </p>
+
+    <div class="container6">
+      <p>
+        <%= f.label :pokemon1 %>
+        <%= f.select "pokemon1_id", @pokemons.map { |m| [ m.name, m.id]}, {} %>
+      </p>
+    </div>
+
+    <div class="container8 center">
+      <h2 style="font-size:5em"> VS </h2>
+    </div>
+
+    <div class="container7">
+      <p>
+        <%= f.label :pokemon2 %>
+        <%= f.select "pokemon2_id", @pokemons.map { |m| [ m.name, m.id]}, {} %>
+      </p>
+    </div>
+
+    <p>
+    <%= f.submit "SUBMIT", class: "btn-add-skill btn btn-secondary btn-lg w-50" %>
+    </p>
+
+<% end %>
+</div>

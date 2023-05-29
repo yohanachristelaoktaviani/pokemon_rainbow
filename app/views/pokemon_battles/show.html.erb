@@ -1,0 +1,137 @@
+<% provide(:title, "Battle") %>
+
+<br>
+<%= render_breadcrumbs :separator => ' / ' %>
+
+<h1>Battle Arena</h1>
+
+<% if flash[:notice] %>
+<div class="alert alert-success">
+  <%= flash[:notice] %>
+</div>
+<% end %>
+
+<% if flash[:errors] %>
+<div class="alert alert-warning">
+  <%= flash[:errors] %>
+</div>
+<% end %>
+
+<div class="container12">
+<% if @pokemon_battle %>
+  <table>
+      <tr>
+        <% if @pokemon_battle.current_turn.odd? %>
+          <th class="fontturn"> Turn :</th>
+          <td class="fontturn"><%= @pokemon_battle.pokemon1.pokedexes.pokemon.name.upcase %></td>
+        <% elsif @pokemon_battle.current_turn.even? %>
+          <th class="fontturn"> Turn :</th>
+          <td class="fontturn"><%= @pokemon_battle.pokemon2.pokedexes.pokemon.name.upcase %></td>
+        <% end %>
+        </tr>
+  </table>
+</div>
+
+
+<div class="container9">
+  <p class="playerr"><u>Pokemon 1</u></p>
+  <div class="container10">
+    <%= image_tag @pokemon_battle.pokemon1.pokedexes.image_url, width:280, height:300 %>
+  </div>
+    <table class="tablehp">
+      <tr>
+        <th>Name</th>
+          <td>:</td>
+          <td><%= @pokemon_battle.pokemon1.pokedexes.pokemon.name.upcase%></td>
+      </tr>
+      <tr>
+        <th>HP </th>
+          <td>:</td>
+          <td><%= @pokemon_battle.pokemon1.current_health_point%> /
+              <%= @pokemon_battle.pokemon1.max_health_point%>
+          </td>
+      </tr>
+      <tr>
+      <% if @pokemon_battle.pokemon_winner_id == @pokemon_battle.pokemon1.id  %>
+        <th class="fonturn">XP </th>
+        <td>:</td>
+        <td class="fontturn"><%=   @pokemon_battle.experience_gain %></td>
+      <% end %>
+      </tr>
+      <tr>
+        <th>Attack</th>
+          <td>:</td>
+          <td>
+            <%= form_with(url: attack_pokemon_battle_path, local: true)do |f| %>
+            <%= f.select "skill1_id", options_for_select(@pokemon1_attack)%>
+          </td>
+      </tr>
+      </table>
+
+      <table class="tablehp w-100">
+      <tr>
+        <td>
+          <%= f.submit "ATTACK", class: "btn-attack btn btn-primary btn-lg w-100",  name:'attack', disabled: @pokemon_battle.current_turn.even? %>
+          </td>
+        <td>
+          <%= link_to '<button type="button", class="btn-attack btn btn-danger btn-lg w-100">SURRENDER</button>'.html_safe,  surrender1_pokemon_battle_path %>
+        </td>
+      </tr>
+      </table>
+  </div>
+
+  <div class="container11">
+  <p class="playerr"><u>Pokemon 2</u></p>
+
+<div class="container10">
+  <%= image_tag @pokemon_battle.pokemon2.pokedexes.image_url, width:280, height:300 %>
+</div>
+  <table class="tablehp">
+    <tr>
+      <th>Name</th>
+        <td>:</td>
+        <td><%= @pokemon_battle.pokemon2.pokedexes.pokemon.name.upcase%></td>
+    </tr>
+    <tr>
+      <th>HP </th>
+        <td>:</td>
+        <td><%= @pokemon_battle.pokemon2.current_health_point%> /
+            <%= @pokemon_battle.pokemon2.max_health_point%>
+        </td>
+    </tr>
+    <tr>
+    <% if @pokemon_battle.pokemon_winner_id == @pokemon_battle.pokemon2.id  %>
+      <th class="fonturn">XP </th>
+      <td>:</td>
+      <td class="fontturn"><%=   @pokemon_battle.experience_gain %></td>
+    <% end %>
+    </tr>
+    <tr>
+      <th>Attack</th>
+        <td>:</td>
+        <td>
+        <%= f.select "skill2_id", options_for_select(@pokemon2_attack) %>
+        </td>
+    </tr>
+    </table>
+
+    <table class="tablehp w-100">
+    <tr>
+      <td>
+        <%= f.submit "ATTACK", class: "btn-attack btn btn-primary btn-lg w-100",  name:'attack', disabled: @pokemon_battle.current_turn.odd? %>
+      <td>
+        <%= link_to '<button type="button", class="btn-attack btn btn-danger btn-lg w-100">SURRENDER</button>'.html_safe, surrender2_pokemon_battle_path %>
+
+      </td>
+    </tr>
+    </table>
+
+    <% end %>
+<% end %>
+</div>
+
+
+
+
+
+

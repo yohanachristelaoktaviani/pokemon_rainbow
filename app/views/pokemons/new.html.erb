@@ -1,0 +1,21 @@
+<% provide(:title, "Add Pokemon") %>
+<br>
+<%= render_breadcrumbs :separator => ' / ' %>
+<div class="form2">
+
+<h2>Add New Pokemon</h2>
+        <%= form_with(model: @pokemon, local: true)do |f| %>
+        <hr>
+          <p>
+          <%= f.label :pokemon %>
+          <%= f.select :pokedex_id, @pokedex.map { |m| [m.name, m.id]}, {}  %>
+          </p>
+
+          <p>
+          <%= f.submit "SUBMIT", class: "button4 btn btn-primary" %>
+          </p>
+          <% end %>
+
+</div>
+
+

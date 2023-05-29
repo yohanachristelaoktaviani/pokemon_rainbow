@@ -1,0 +1,31 @@
+<% provide(:title, "Edit Skill") %>
+<br>
+<%= render_breadcrumbs :separator => ' / ' %>
+
+<div class="form2">
+
+<h2>Edit Skill</h2>
+        <%= form_with(model: @skill, local: true)do |f| %>
+        <hr>
+          <p>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+          </p>
+          <p>
+          <%= f.label :pp %>
+          <%= f.text_field :max_pp %>
+          </p>
+          <p>
+          <%= f.label :attack_point %>
+          <%= f.text_field :power %>
+          </p>
+          <p>
+          <%= f.label :element_type %>
+            <%= f.select :element_type, options_for_select(Skill.distinct.pluck(:element_type)) %>
+          </p>
+          <p>
+          <%= f.submit "UPDATE", class: "button4 btn btn-secondary btn-lg" %>
+          </p>
+          <% end %>
+
+</div>

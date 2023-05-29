@@ -1,0 +1,41 @@
+<% provide(:title, "Pokedex") %>
+<div class="form">
+<br>
+<%= render_breadcrumbs :separator => ' / ' %>
+
+<h1>Pokedex</h1>
+
+<table class="table table-bordered table-striped table-hover w-100 center">
+  <thead class="thead">
+    <tr>
+      <th class="th">Name</th>
+      <th class="th">Base Health Point</th>
+      <th class="th">Base Attack</th>
+      <th class="th">Base Defence</th>
+      <th class="th">Base Speed</th>
+      <th class="th">Element Type</th>
+      <th class="th">Image</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  <% @pokedexes.each do |pokedex| %>
+      <tr>
+          <td style="text-align:left"><%= link_to pokedex.name, pokedex_path(pokedex) %></td>
+          <td><%= pokedex.base_health_point %></td>
+          <td><%= pokedex.base_attack %></td>
+          <td><%= pokedex.base_defence %></td>
+          <td><%= pokedex.base_speed %></td>
+          <td><%= pokedex.element_type %></td>
+          <td><image src="<%= (url_for(pokedex.image_url)) %>", class="imagee"></image></td>
+
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+
+
+<%= paginate @pokedexes, :window => 5 %>
+<br>
+
+</div>

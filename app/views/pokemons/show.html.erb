@@ -1,0 +1,88 @@
+<% provide(:title, "Detail") %>
+<br>
+<%= render_breadcrumbs :separator => ' / ' %>
+
+<h1>Pokedex Detail</h1>
+
+<table>
+  <tr>
+    <td><%= button_to "Heal", healshow_pokemon_path, method: 'post', class: "button7 btn btn-success" %></td>
+    <td><%= button_to "Edit", edit_pokemon_path, method: 'get', class: "button6 btn btn-outline-primary" %></td>
+    <td><%= button_to "Delete", pokemon_path, method: 'delete',
+    data: { confirm: "You sure?" }, class: "button2 btn btn-outline-danger" %></td>
+  </tr>
+</table>
+
+<div class="container1">
+  <div class="container2">
+      <image src="<%= (url_for(@pokemons.pokedexes.image_url)) %>", class="imageee"></image>
+  </div>
+</div>
+
+<div class="container3">
+<h1><%= @pokemons.name.upcase%></h1>
+  <table class="tablee tablestat" style="width:100%">
+      <tr>
+        <th>Health Point</th>
+        <td>:</td>
+        <td><%= @pokemons.max_health_point%></td>
+      </tr>
+      <tr>
+        <th>Current Health Point</th>
+        <td>:</td>
+        <td><%= @pokemons.current_health_point%></td>
+      </tr>
+      <tr>
+        <th>Attack</th>
+        <td>:</td>
+        <td><%= @pokemons.attack%></td>
+      </tr>
+      <tr>
+        <th>Defence</th>
+        <td>:</td>
+        <td><%= @pokemons.defence%></td>
+      </tr>
+      <tr>
+        <th>Speed</th>
+        <td>:</td>
+        <td><%= @pokemons.speed%></td>
+      </tr>
+      <tr>
+        <th>Level</th>
+        <td>:</td>
+        <td><%= @pokemons.level%></td>
+      </tr>
+      <tr>
+        <th>Current Experince</th>
+        <td>:</td>
+        <td><%= @pokemons.current_experience%></td>
+      </tr>
+  </table>
+</div>
+
+
+<table class="table table-bordered table-striped table-hover w-100">
+  <thead class="thead">
+    <tr>
+      <th class="th">Name</th>
+      <th class="th">Element Type</th>
+      <th class="th">Attack Power</th>
+      <th class="th">Max PP</th>
+      <th class="th">Current PP</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% if @pokemons %>
+    <% @pokemons.pokemon_skills.each do |skill| %>
+      <tr>
+        <td><%= skill.skill.name %></td>
+        <td><%= skill.skill.element_type %></td>
+        <td><%= skill.skill.power %></td>
+        <td><%= skill.skill.max_pp %></td>
+        <td><%= skill.current_pp %></td>
+      </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>

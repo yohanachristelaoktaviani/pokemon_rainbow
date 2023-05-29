@@ -1,0 +1,43 @@
+<% provide(:title, "Detail") %>
+<br>
+<%= render_breadcrumbs :separator => ' / ' %>
+
+<h1>Pokedex Detail</h1>
+
+<div class="container1">
+  <div class="container2">
+      <image src="<%= (url_for(@pokedexes.image_url)) %>", class="imageee"></image>
+  </div>
+
+</div>
+
+<div class="container3">
+<h1><%= @pokedexes.name.upcase%></h1>
+  <table class="tablee tablestat" style="width:75%">
+      <tr>
+        <th>Health Point</th>
+        <td>:</td>
+        <td><%= @pokedexes.base_health_point%></td>
+      </tr>
+      <tr>
+        <th>Attack</th>
+        <td>:</td>
+        <td><%= @pokedexes.base_attack%></td>
+      </tr>
+      <tr>
+        <th>Defence</th>
+        <td>:</td>
+        <td><%= @pokedexes.base_defence%></td>
+      </tr>
+      <tr>
+        <th>Speed</th>
+        <td>:</td>
+        <td><%= @pokedexes.base_speed%></td>
+      </tr>
+      <tr>
+      <th>Element Type</th>
+      <td>:</td>
+      <td><%= @pokedexes.element_type%></td>
+    </tr>
+  </table>
+</div>

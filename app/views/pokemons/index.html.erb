@@ -1,0 +1,53 @@
+<% provide(:title, "Pokemons") %>
+<div class="form">
+<br>
+<%= render_breadcrumbs :separator => ' / ' %>
+
+<h1>Pokemons Index</h1>
+
+<table>
+  <tr>
+    <td><%= button_to "Heal All", heal_pokemons_path, method: 'get', class: "button5 btn btn-success" %></td>
+    <td><%= button_to "Create", new_pokemon_path, method: 'get', class: "button2 btn btn-primary" %></td>
+    </tr>
+</table>
+
+<table class="table table-bordered table-striped table-hover w-100 center">
+  <thead class="thead">
+    <tr>
+      <th class="th">Name</th>
+      <th class="th">Max Health Point</th>
+      <th class="th">Current Health Point</th>
+      <th class="th">Attack</th>
+      <th class="th">Defence</th>
+      <th class="th">Speed</th>
+      <th class="th">Current Experince</th>
+      <th class="th">Level</th>
+      <th class="th">Action</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  <% @pokemons.each do |pokemon| %>
+      <tr>
+          <td style="text-align:left"><%= link_to pokemon.name, pokemon_path(pokemon) %></td>
+          <td><%= pokemon.max_health_point %></td>
+          <td><%= pokemon.current_health_point %></td>
+          <td><%= pokemon.attack %></td>
+          <td><%= pokemon.defence %></td>
+          <td><%= pokemon.speed %></td>
+          <td><%= pokemon.current_experience %></td>
+          <td><%= pokemon.level %></td>
+          <td><%= button_to "Heal", healer_pokemon_path(pokemon), method: 'post', class: "btnn btn btn-success w-100"%></td>
+      </tr>
+      <% end %>
+
+  </tbody>
+</table>
+
+
+<%= paginate @pokemons, :window => 5 %>
+
+<br>
+
+</div>

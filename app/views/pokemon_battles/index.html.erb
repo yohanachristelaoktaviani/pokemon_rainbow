@@ -1,0 +1,62 @@
+<% provide(:title, "Pokemons") %>
+<br>
+<%= render_breadcrumbs :separator => ' / ' %>
+
+<h1>Pokemon Battles Index</h1>
+
+<table class="tablee">
+  <tr>
+    <td><%= button_to "Create", new_pokemon_battle_path, method: 'get', class: "button3 btn btn-primary" %></td>
+  </tr>
+</table>
+
+<div class="form">
+
+<div class="alert alert-info alertbox w-50">
+    <h3 class="alert-heading">Attention!</h3>
+    <hr>
+    <p>Battle that has been completed can't played back</p>
+</div>
+
+<table class="table table-bordered table-striped table-hover w-100 center">
+  <thead>
+    <tr>
+      <th class="th">No.</th>
+      <th class="th">Pokemon 1</th>
+      <th class="th">Pokemon 2</th>
+      <th class="th">Turn</th>
+      <th class="th">Status</th>
+      <th class="th">Action</th>
+    <tr>
+  </thead>
+
+  <tbody>
+    <% @pokemon_battles.each_with_index do |battle, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= battle.pokemon1.pokedexes.pokemon.name%></td>
+        <td><%= battle.pokemon2.pokedexes.pokemon.name%></td>
+        <td><%= battle.current_turn%></td>
+        <td><%=
+            if battle.winner.present?
+              "finish"
+            else
+              "ongoing"
+            end
+            %></td>
+        <td><%=
+         button_to "Battle",
+         pokemon_battle_path(battle),
+         method: 'get',
+         class: "btnn btn btn-warning w-100",
+         hidden: battle.winner.present?
+         %>
+        </td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= paginate @pokemon_battles, :window => 5 %>
+
+</div>

@@ -1,0 +1,39 @@
+<% provide(:title, "Attack") %>
+<br>
+<%= render_breadcrumbs :separator => ' / ' %>
+
+
+<h1>Attack Detail</h1>
+
+<table>
+  <tr>
+    <td><%= button_to "Edit", edit_skill_path, method: 'get', class: "button1 btn btn-outline-primary" %></td>
+    <td><%= button_to "Delete", skill_path, method: 'delete',
+    data: { confirm: "You sure?" }, class: "button2 btn btn-outline-danger" %></td>
+  </tr>
+</table>
+
+<div class="container4">
+  <table class="tableee tablestat" style="width:100%">
+      <tr>
+        <th>Name</th>
+        <td>:</td>
+        <td><%= @skills.name.upcase%></td>
+      </tr>
+      <tr>
+        <th>PP</th>
+        <td>:</td>
+        <td><%= @skills.max_pp%></td>
+      </tr>
+      <tr>
+        <th>Attack Point</th>
+        <td>:</td>
+        <td><%= @skills.power%></td>
+      </tr>
+      <tr>
+        <th>Element Type</th>
+        <td>:</td>
+        <td><%= @skills.element_type%></td>
+    </tr>
+  </table>
+</div>

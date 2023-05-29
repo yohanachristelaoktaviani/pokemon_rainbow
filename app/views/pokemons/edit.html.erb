@@ -1,0 +1,138 @@
+<% provide(:title, "Edit Pokemon") %>
+<br>
+<%= render_breadcrumbs :separator => ' / ' %>
+
+<% if flash[:errors] %>
+<div class="alert alert-warning">
+  <%= flash[:errors] %>
+</div>
+<% end %>
+
+<h1>Edit Pokemon</h1>
+
+<div class="container1">
+  <div class="container2">
+    <image src="<%= (url_for(@pokemon.pokedexes.image_url)) %>", class="imageee"></image>
+  </div>
+</div>
+
+<div class="container5">
+  <div class="form3">
+    <%= form_with model: @pokemon, url: pokemon_path(@pokemon), method: :patch, format: :json do |f| %>
+      <p>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </p>
+      <p>
+        <%= f.label :health_point %>
+        <%= f.text_field :max_health_point %>
+      </p>
+      <p>
+        <%= f.label :current_health_point %>
+        <%= f.text_field :current_health_point %>
+      </p>
+      <p>
+        <%= f.label :attack %>
+        <%= f.text_field :attack %>
+      </p>
+      <p>
+        <%= f.label :defence %>
+        <%= f.text_field :defence %>
+      </p>
+      <p>
+        <%= f.label :speed %>
+        <%= f.text_field :speed %>
+      </p>
+      <p>
+        <%= f.label :level %>
+        <%= f.text_field :level, disabled: true %>
+      </p>
+      <p>
+        <%= f.label :current_experience %>
+        <%= f.text_field :current_experience, disabled: true %>
+      </p>
+  </div>
+</div>
+
+<h2>Edit Skills</h2>
+  <hr>
+    <table class="table table-bordered table-striped table-hover w-100">
+      <%= f.fields_for :pokemon_skills do |fs| %>
+        <tr>
+          <td>
+            <%= fs.collection_select :skill_id, @skills, :id, :name, { prompt: 'Select a skill' } %>
+          </td>
+          <td>
+            <%= fs.number_field :current_pp %>
+          </td>
+          <td><%= link_to 'Delete Skill', destroyskill_pokemon_path(@pokemon), method: 'delete', class: "btn btn-danger w-100 delete-skill" %></td>
+        </tr>
+      <% end %>
+    </table>
+
+  <p>
+    <td colspan="2"><%= link_to 'Add Skill', '#', class: 'btn btn-add-skill btn-primary w-50 add-skill' %></td>
+  </p>
+
+  <p>
+    <%= f.submit "UPDATE", class: "btn-add-skill btn btn-secondary btn-lg w-50", style:"margin-top:20px" %>
+  </p>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const addSkillButton = document.querySelector('.add-skill');
+      const skillsContainer = document.querySelector('table tbody');
+      const deleteSkillButtons = document.querySelectorAll('.delete-skill');
+      let skillCount = 0;
+
+      addSkillButton.addEventListener('click', (event) => {
+
+      if (skillCount < 4) {
+      const skillTemplate = document.querySelector('.skill-template');
+      const newSkill = skillTemplate.content.cloneNode(true);
+
+      skillsContainer.appendChild(newSkill);
+      skillCount++;
+
+      if (skillCount >= 4) {
+          addSkillButton.disabled = true;
+        }
+
+      } else {
+        alert('You can only add up to 4 skills.');
+      }
+    });
+
+    deleteSkillButtons.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        const row = event.target.closest('tr');
+        row.remove();
+        skillCount--;
+        addSkillButton.disabled = false;
+      });
+    });
+  });
+
+  </script>
+
+  <template class="skill-template">
+    <tr>
+      <td>
+        <%= f.collection_select :skill_id, @skills, :id, :name, { prompt: 'Select a skill' }, { class: 'skill-select' } %>
+      </td>
+      <td>
+        <%= f.number_field :current_pp %>
+      </td>
+      <td>
+        <%= link_to 'Delete Skill', destroyskill_pokemon_path(@pokemon), method: 'delete', class: "btn btn-danger w-100 delete-skill" %>
+      </td>
+    </tr>
+  </template>
+  <% end %>
+
+
+
+
+
+

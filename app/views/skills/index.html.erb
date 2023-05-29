@@ -1,0 +1,37 @@
+<% provide(:title, "Skills") %>
+<br>
+<%= render_breadcrumbs :separator => ' / ' %>
+
+<h1>Attack</h1>
+
+<table class="tablee">
+  <tr>
+    <td><%= button_to "Create", new_skill_path, method: 'get', class: "button3 btn btn-primary" %></td>
+
+    </tr>
+</table>
+
+<table class="table table-bordered table-striped table-hover w-100 center">
+  <thead class="thead">
+    <tr>
+      <th class="th">Name</th>
+      <th class="th">PP</th>
+      <th class="th">Attack Power</th>
+      <th class="th">Element Type</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  <% @skills.each do |skill| %>
+        <tr>
+            <td style="text-align:left"><%= link_to skill.name, skill_path(skill) %></td>
+            <td><%= skill.max_pp %></td>
+            <td><%= skill.power %></td>
+            <td><%= skill.element_type %></td>
+        </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @skills, :window => 5 %>
+<br>
